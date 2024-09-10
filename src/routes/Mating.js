@@ -20,7 +20,7 @@ export default class Mating extends Component {
                 ${ morphs.map(morph => {
                     return `
                         <div class="morph" data-morph="${morph}">
-                            <img src="../img/Union5.png" alt="${morph}" />
+                            <img src="../img/morph_${morph}.png" alt="${morph}" />
                             <b class="morph_name">${morph}</b>
                         </div>
                     `
@@ -89,11 +89,10 @@ export default class Mating extends Component {
         detailsSection.style.display = 'block'
 
         detailsSection.querySelector('.details').innerHTML = `
-            <img src="${lizard.image}" alt="${lizard.name}" />
             <p>Name: ${lizard.name}</p>
-            <p>Species: ${lizard.species}</p>
-            <p>Age: ${lizard.age}</p>
-            <p>Characteristics: ${lizard.characteristics}</p>
+            <img src="${lizard.image}" alt="${lizard.name}" />
+            <p>나이: ${lizard.age}살</p>
+            <p>모프: ${lizard.morph}</p>
         `
 
         detailsSection.querySelector('.mating-request').style.display = 'block'
