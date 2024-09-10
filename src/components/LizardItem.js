@@ -10,11 +10,11 @@ export default class LizardItem extends Component {
     render() {
         const { lizard } = this.props
 
-        this.el.setAttribute('href', `#/lizards?id=${lizard.id}` )
+        this.el.setAttribute('href', `#/lizard?id=${lizard.id}` )
         this.el.classList.add('lizard')
         this.el.innerHTML = `
             <div class="info">
-                <img src="${lizard.image}" alt="${lizard.name}">
+                <img src="https://i.imgur.com/4WRoTb0.png">
                 <h3>${lizard.name}</h3>
             </div>
         `
