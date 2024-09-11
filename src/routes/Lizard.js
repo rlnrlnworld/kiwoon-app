@@ -23,17 +23,6 @@ const getStatusText = status => {
     return `적정`;
 }
 
-const getSvgIcon = type => {
-    const btn = {
-        enclosure: `<img class="section1" src="https://i.imgur.com/N8KMsSO.png">`,
-        watering: `<img class="section2" src="https://i.imgur.com/jxNQ44d.png">`,
-        cam: `<img class="section3" src="https://i.imgur.com/Pw1I70R.png">`,
-        mating: `<img class="section4" src="https://i.imgur.com/AmZnWrU.png">`,
-        morphDict: `<img class="section5" src="https://i.imgur.com/q6E7QNM.png">`
-    };
-    return btn[type] || '';
-};
-
 // 케이지 관리 페이지
 export default class Lizard extends Component {
     async render() {
