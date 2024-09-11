@@ -1,6 +1,7 @@
 import { Component } from '../core/setup'
 import lizardStore, { fetchLizards } from '../store/lizard'
 import LizardItem from './LizardItem'
+import PlusLizard from './PlusLizard'
 
 export default class LizardList extends Component {
     constructor(lizards) {
@@ -22,13 +23,18 @@ export default class LizardList extends Component {
             : `<div class="lizards"></div>`}
             <div class="the-loader hide"></div>
         `
-
         const lizardEl = this.el.querySelector('.lizards')
-        lizardEl?.append(
-            ...lizardStore.state.lizards.map(lizard => new LizardItem({
-                lizard
-            }).el)
-        )
+
+        // 도마뱀 목록을 렌더링
+        lizardStore.state.lizards.forEach(lizard => {
+            const lizardItem = new LizardItem({ lizard }).el
+            lizardEl?.appendChild(lizardItem)
+        })
+
+        // 플러스 버튼을 렌더링
+        const plusLizard = new PlusLizard().el
+        lizardEl?.appendChild(plusLizard)
+        
 
         const loaderEl = this.el.querySelector('.the-loader')
         lizardStore.state.loading

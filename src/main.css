@@ -69,123 +69,233 @@ nav .title {
 
 /* 도마뱀 관리 페이지 */
 .enclosure {
-    position: relative;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
-.enclosure .section1 {
+.enclosure .iconEnclosure {
+    width: fit-content;
+    display: block;
+    margin: 30px auto;
+}
+.enclosure .envStat {
+    width: 90%;
+    display: flex;
+    margin: 20px auto;
+    gap: 20px;
+}
+.enclosure .envStat .temp {
+    width: 50%;
+    display: flex;
+    gap: 20px;
+}
+.envStat .temp .tempText {
+    margin-top: 5px;
+    align-items: center;
+    font-family:'Gmarket-sans',sans-serif;
+    font-size: 24px;
+    color: #fff;
+}
+.tempText span {
+    font-weight: bold;
+}
+.tempText .current {
+    text-align: center;
+    font-size: 22px;
+    color: rgba(255,255,255,0.8);
+}
+
+.enclosure .envStat .humidity {
+    width: 50%;
+    display: flex;
+    gap: 20px;
+}
+.envStat .humidity img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+.envStat .humidity .humidityText {
+    margin-top: 5px;
+    align-items: center;
+    font-family:'Gmarket-sans',sans-serif;
+    font-size: 24px;
+    color: #fff;
+}
+.humidityText span {
+    font-weight: bold;
+}
+.humidityText .current {
+    text-align: center;
+    font-size: 22px;
+    color: rgba(255,255,255,0.8);
+}
+.buttons {
+    width: 95%;
+    margin: 9px auto 2px;
+    display: flex;
+    gap: 10px;
+}
+.buttons .remoteTemp {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    background-color: #fefae0;
+    height: 130px;
+}
+.remoteTemp .iconTemp {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+}
+.remoteTemp .remoteText {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+    gap: 4px;
+}
+.group-child {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    border-radius: 50%;
+    border: 2px solid #303030;
+    box-sizing: border-box;
+}
+.group-item {
+    position: absolute;
+    top: 17.5px;
+    left: 7px;
+    border-top: 2px solid #303030;
+    box-sizing: border-box;
+    width: 21px;
+    height: 1px;
+}
+.group-inner {
+    position: absolute;
+    top: 7.5px;
+    left: 16px;
+    border-right: 2px solid #303030;
+    box-sizing: border-box;
+    width: 1px;
+    height: 21px;
+    }
+.down {
+    cursor: pointer;
+}
+.ellipse-parent:hover {
+    border-radius: 50%;
+    background-color: #303030;
+}
+.ellipse-parent:hover .group-item {
+    border-color: #fefae0;
+}
+.ellipse-parent:hover .group-inner {
+    border-color: #fefae0;
+}
+
+.up {
+    cursor: pointer;
+}
+.ellipse-parent {
+    width: 35px;
+    position: relative;
+    height: 35px;
+}
+.remoteText span {
+    margin: 0 4px;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-weight: bolder;
+    font-size: 24px;
+}
+.buttons .watering {
+    width: 100%;
+    position: relative;
+    border-radius: 30px;
+    background-color: #e9edc9;
+    height: 130px;
+}
+.watering img {
+    display: block;
+    margin: 17px auto 27px;
+}
+.wateringText {
+    width: 90%;
+    margin: 10px auto;
+    align-items: center;
+    text-align: center;
+}
+.wateringText span {
+    font-family: 'Gmarket-sans', sans-serif;
+    font-weight: bolder;
+    font-size: 24px;
+}
+.growthComp {
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    position: relative; /* 부모 요소의 위치 기준 설정 */
+}
+.growthComp img {
+    cursor: pointer;
+    display: block;
+    width: 420px;
+    margin: 0 4px;
     position: absolute;
     z-index: -1;
 }
-.enclosure .envStat {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-items: center;
-    position: absolute;
-    top: 180px;
-    left: 28px;
+.growthComp .cmpText {
     font-family: 'Gmarket-sans', sans-serif;
-    font-size: 24px;
+    padding-top: 60px;
+    padding-left: 150px;
 }
-.enclosure .envStat .temp {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    justify-items: center;
-}
-.status span {
+.growthComp .cmpText b {
+    display: inline-block;
+    font-size: 32px;
     font-weight: bold;
+    color: #303030;
+    line-height: 1.5;
 }
-.current {
-    font-weight: light;
-    color: #6f6f6f;
-}
-.enclosure .envStat .humidity {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    justify-items: center;
-}
-.buttons {
-    position: relative;
-}
-.buttons .section2 {
-    position: absolute;
-    top: 280px;
-    z-index: -2;
-}
-.buttons .section3 {
-    position: absolute;
-    top: 280px;
-    right: 14px;
-    z-index: -3;
-}
-.wateringText {
-    position: absolute;
-    top: 372px;
-    left: 50px;
-    font-family: 'Gmarket-sans', sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-}
-.wateringText img {
-    margin: 0 auto;
+.growthComp .cmpText span {
     display: block;
-}
-.wateringText span {
-    display: block;
-    margin: 10px auto;
-}
-.checkCamText {
-    position: absolute;
-    top: 372px;
-    left: 265px;
-    font-family: 'Gmarket-sans', sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-}
-.checkCamText img {
-    width: fit-content;
-    margin: 0 auto;
-    display: block;
-}
-.checkCamText span {
-    display: block;
-    margin: 10px auto;
-}
-.icon_cam {
-    width: 70px;
-    height: 50px;
+    color: #303030;
 }
 .mating {
+    cursor: pointer;
+    width: fit-content;
     position: relative;
 }
-.mating .section4{
+.mating .btnMating {
+    cursor: pointer;
+    display: block;
+    width: 420px;
+    margin: 0 4px;
     position: absolute;
-    top: 488px;
-    z-index: -4;
+    z-index: -1;
+    top: 55px;
 }
-.matingText img{
-    position: absolute;
-    width:fit-content;
-    top: 570px;
-    left: 60px;
-    font-size: 30px;
-    justify-content: center;
-    align-items: center;
-}
-.matingText span {
-    position: absolute;
-    top: 590px;
-    left: 200px;
-    margin: 10px auto;
+.mating .matingText {
     font-family: 'Gmarket-sans', sans-serif;
-    color: #303030;
-    font-size: 30px;
+    padding-top: 130px;
+    padding-left: 150px;
+}
+.mating .matingText b {
+    display: inline-block;
+    font-size: 32px;
     font-weight: bold;
+    color: #303030;
+    line-height: 1.5;
+}
+.mating .matingText span {
+    display: block;
+    color: #303030;
 }
 
 
@@ -209,4 +319,215 @@ nav .title {
     color: #6f6f6f;
     font-size: 40px;
     font-weight: bolder;
+}
+/* 도마뱀 등록 페이지 */
+.register-lizard {
+    margin-top: 30px !important;
+}
+.register-lizard .btnBox {
+    height: 200px;
+}
+.register-lizard img {
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    border-radius: 50%;
+    transition: 0.3s ease; /* 테두리 애니메이션 효과 */
+}
+.register-lizard img:hover {
+    box-shadow: 0 0 0 4px rgba(187, 246, 226, 1); /* 테두리 효과 */
+    border-radius: 50%; /* 원형으로 만들기 */
+}
+.register-lizard div {
+    padding: 20px;
+    position: relative;
+}
+
+
+.register-lizard div > div > input {
+    width: 72%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #303030;
+    color: #fff;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
+    transition: .5s box-shadow ease-in-out;
+}
+.register-lizard div > div:focus-within {
+    outline: 1px solid rgba(187, 246, 226, 1);
+    box-shadow: rgba(187, 246, 226, 1);
+}
+
+.lizardInfo .infoName {
+    border: 1px solid #fff;
+    border-radius: 8px 8px 0 0;
+}
+.lizardInfo .infoBirthDate {
+    border: 1px solid #fff;
+    border-top: none;
+}
+.lizardInfo .infoAdopt {
+    border: 1px solid #fff;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+.register-lizard div > span {
+    margin-right: 10px;
+    color: #fff;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-weight: lighter;
+}
+
+.lizardInfoPlus .infoWeight {
+    border: 1px solid #fff;
+    border-radius: 8px 8px 0 0;
+}
+.lizardInfoPlus .infoKind {
+    border: 1px solid #fff;
+    border-top: none;
+}
+.lizardInfoPlus .infoMorph {
+    border: 1px solid #fff;
+    border-top: none;
+}
+.lizardInfoPlus .matingYN {
+    border: 1px solid #fff;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+/* 토글 스위치 스타일 */
+.matingYN {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.matingYN input[type="checkbox"] {
+    display: none; /* 체크박스를 숨깁니다 */
+}
+
+.matingYN .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.matingYN .toggle-switch::before {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.matingYN .toggle-switch::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.matingYN input[type="checkbox"]:checked + .toggle-switch::before {
+    background-color: #BBF6E2; /* 체크 시 배경 색상 */
+}
+
+.matingYN input[type="checkbox"]:checked + .toggle-switch::after {
+    transform: translateX(14px); /* 체크 시 이동 */
+}
+
+.registerBtn {
+    display: block;
+    width: 245px;
+    height: 48px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: .3s ease-in-out;
+    margin-bottom: 30px;
+}
+.registerBtn:hover {
+    background-color: rgba(187, 246, 226, 1);
+    color: #303030;
+}
+/* 성장 비교 페이지 */
+.growth-cmp {
+    width: 100%;
+}
+.growth-cmp img {
+    display: block;
+    margin: 40px auto;
+}
+.growth-cmp h1 {
+    text-align: center;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+}
+.growth-cmp h1 span {
+    
+    color: #fff;
+}
+.growth-cmp .superFood {
+    margin-top: 40px;
+}
+.growth-cmp .superFoodTitle {
+    font-size: 45px;
+    text-align: left;
+    color: rgba(255,255,255,0.8);
+}
+.superFood span {
+    color: rgba(255,255,255,0.5);
+    font-family: 'Gmarket-sans', sans-serif;
+}
+.taste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+.taste > div {
+    background-color:#FEFAE0;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 200px;
+    height: 150px;
+    margin: 0 auto;
+}
+.taste div img {
+    width: 80px;
+    height: 125px;
+}
+.taste div h3 {
+    margin-left: 5px;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #303030;
 }

@@ -5,12 +5,13 @@ const dummyLizard = {
     id: 1,
     name: "Example Lizard",
     optTemperature: 23,
-    optHumidity: 50
+    optHumidity: 50,
+    weight: 8
 };
 
 const getStatusIcon = status => {
     const iconPath = status === 'high' || status === 'low' 
-                    ? 'https://i.imgur.com/M2fQRo2.png' 
+                    ? 'https://i.imgur.com/3vKcIV9.png' 
                     : 'https://i.imgur.com/ZriEjdj.png';
     const iconImg = `<img src="${iconPath}" alt="${status} icon" />`;
     return iconImg;
@@ -73,7 +74,7 @@ export default class Lizard extends Component {
 
         this.el.innerHTML = `
             <div class="enclosure">
-                ${getSvgIcon('enclosure')}
+                <img class="iconEnclosure" src="https://i.imgur.com/1dAwK1I.png">
                 <div class="envStat">
                     <div class="temp ${tempStatus}">
                         ${getStatusIcon(tempStatus)}
@@ -100,43 +101,56 @@ export default class Lizard extends Component {
                 </div>
             </div>
             <div class="buttons">
-                <div class="watering">
-                    ${getSvgIcon('watering')}
-                    <div class="wateringText">
-                        <img src="https://i.imgur.com/bUaK1z8.png">
-                        <span>물 분사하기</span>
+                <div class="remoteTemp">
+                    <img class="iconTemp" src="https://i.imgur.com/kHPO2Ga.png">
+                    <div class="remoteText">
+                        <div class="down ellipse-parent">
+                            <div class="down group-child">
+                            </div>
+                            <div class="down group-item">
+                            </div>
+                        </div>
+                        <span> 온도 </span>
+                        <div class="up ellipse-parent">
+                            <div class="up group-child">
+                            </div>
+                            <div class="up group-item">
+                            </div>
+                            <div class="up group-inner">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="checkCam">
-                    ${getSvgIcon('cam')}
-                    <div class="checkCamText">
-                        <img class="icon_cam" src="https://i.imgur.com/6TMciMY.png">
-                        <span>캠 확인하기</span>
+                <div class="watering">
+                    <img src="https://i.imgur.com/bUaK1z8.png">
+                    <div class="wateringText">
+                        <span>물 분사</span>
                     </div>
                 </div>
             </div>
-            <div class="mating">
-                ${getSvgIcon('mating')}
+            <div class = "growthComp">
+                <img class="btnCmp" src ="https://i.imgur.com/2WvRZRt.png">
+                <div class="cmpText">
+                    <b>성장 비교 서비스</b>
+                    <span>내 도마뱀이 잘 크고 있는지 확인해요</span>
+                </div>
+            </div>
+            <div class = "mating">
+                <img class="btnMating" src ="https://i.imgur.com/mxmVvu6.png">
                 <div class="matingText">
-                    <img src="https://i.imgur.com/Yx3z0AV.png">
-                    <span>메이팅해듀오</span>
+                    <b>메이팅해 듀오</b>
+                    <span>내 도마뱀의 짝을 찾아봐요</span>
                 </div>
             </div>
         `;
 
         // 이벤트 핸들러
-        this.el.querySelector('.enclosure').addEventListener('click', () => {
-            window.location.hash = `#/enclosure?id=${id}`;
-        });
-        this.el.querySelector('.watering').addEventListener('click', () => {
-            this.provideWater();
-        });
-        this.el.querySelector('.checkCam').addEventListener('click', () => {
-            this.checkCam();
-        });
-        this.el.querySelector('.mating').addEventListener('click', () => {
-            window.location.hash = `#/mating?id=${id}`;
-        });
+        this.el.querySelector('.growthComp').addEventListener('click',() => {
+            window.location.hash = `#/growth?id=${id}`
+        })
+        this.el.querySelector('.mating').addEventListener('click',() => {
+            window.location.hash = `#/mating?id=${id}`
+        })
     }
 
     // URL에서 ID를 추출하는 함수
