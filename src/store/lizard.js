@@ -30,12 +30,11 @@ export default {
     },
     async loadLizards() {
         try {
-            this.setState({ loading: true });
             const lizards = await fetchLizards();
-            this.setState({ lizards, loading: false });
-        } catch (e) {
-            this.setState({ message: '도마뱀 목록을 불러오는데 실패했습니다.', loading: false });
-            console.error(e);
+            this.setState({ lizards });  // 상태 변경 후 구독자들에게 알림
+        } catch (error) {
+            console.error('Error loading lizards:', error);
+            this.setState({ message: '도마뱀 목록을 불러오는데 실패했습니다.' });
         }
     },
     async loadMatingCandidates(morph) {

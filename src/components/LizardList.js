@@ -13,15 +13,24 @@ export default class LizardList extends Component {
         lizardStore.subscribe('message', this.render.bind(this))
         this.fetchLizards()
     }
+    // async fetchLizards() {
+    //     try {
+    //         // const memberId = localStorage.getItem('memberId');  
+    //         lizardStore.state.loading = true;
+    //         await lizardStore.loadLizards();
+    //         lizardStore.state.loading = false;
+    //     } catch (error) {
+    //         lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.';
+    //         lizardStore.state.loading = false;
+    //     }
+    // }
     async fetchLizards() {
         try {
-            // const memberId = localStorage.getItem('memberId');  
-            lizardStore.state.loading = true;
+            lizardStore.setState({ loading: true });
             await lizardStore.loadLizards();
-            lizardStore.state.loading = false;
+            lizardStore.setState({ loading: false });
         } catch (error) {
-            lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.';
-            lizardStore.state.loading = false;
+            lizardStore.setState({ message: '도마뱀 목록을 불러오는데 실패했습니다.', loading: false });
         }
     }
     render() {
