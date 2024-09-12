@@ -74,7 +74,11 @@ export default class GrowthCmp extends Component {
          // 도마뱀 체중 비교
         const species = lizard.species.toLowerCase()
         const averageWeight = this.getAverageWeight(species, ageInMonths)
-        const weightComparison = lizard.currentWeight < averageWeight ? '평균 이하예요' : '평균 이상이에요';
+        const tolerance = 0.9
+        const weightComparison = 
+            currentWeight < averageWeight - tolerance ? '평균 이하예요' 
+            :currentWeight > averageWeight + tolerance ? '평균 이상이에요' 
+            :'평균이에요'
 
         
         
