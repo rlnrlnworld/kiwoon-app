@@ -28,10 +28,10 @@ export default {
             }
         });
     },
-    async loadLizards(memberId) {
+    async loadLizards() {
         try {
             this.setState({ loading: true });
-            const lizards = await fetchLizards(memberId);
+            const lizards = await fetchLizards();
             this.setState({ lizards, loading: false });
         } catch (e) {
             this.setState({ message: '도마뱀 목록을 불러오는데 실패했습니다.', loading: false });

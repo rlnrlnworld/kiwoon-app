@@ -15,9 +15,9 @@ export default class LizardList extends Component {
     }
     async fetchLizards() {
         try {
-            const memberId = localStorage.getItem('memberId');  // 예시: 로그인 시 저장된 memberId 사용
+            // const memberId = localStorage.getItem('memberId');  
             lizardStore.state.loading = true;
-            await lizardStore.loadLizards(memberId);
+            await lizardStore.loadLizards();
             lizardStore.state.loading = false;
         } catch (error) {
             lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.';

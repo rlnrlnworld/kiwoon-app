@@ -1,4 +1,5 @@
-export async function fetchLizards(memberId) {
+export async function fetchLizards() {
+    const memberId = 1
     const response = await fetch(`/api/lizards/${memberId}`);
     if (!response.ok) {
         const errorText = await response.text();
