@@ -112,8 +112,7 @@ export default class Register extends Component {
                 const response = await fetch('/api/lizard', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${accessToken}` // accessToken을 동적으로 받아와야 함
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
                 })
