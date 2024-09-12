@@ -88,7 +88,7 @@ export default class Register extends Component {
         autoFormatDate(adoptDateInput)
 
         registerBtn.addEventListener('click', async () => {
-            
+
             const memberId = 1
 
             const data = {
@@ -106,7 +106,7 @@ export default class Register extends Component {
             }
 
             try {
-                const response = await fetch('/api/lizard', {
+                const response = await fetch('http://localhost:8888/api/lizard', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
