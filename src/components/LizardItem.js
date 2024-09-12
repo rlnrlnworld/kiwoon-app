@@ -18,5 +18,10 @@ export default class LizardItem extends Component {
                 <h3>${lizard.lizardName}</h3>
             </div>
         `
+        this.el.addEventListener('click', (event) => {
+            event.preventDefault(); // 기본 링크 동작 방지
+            const id = lizard.lizardId;
+            window.location.hash = `#/lizard?id=${id}`; // 해시 변경
+        });
     }
 }

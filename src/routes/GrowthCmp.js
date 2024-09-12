@@ -57,7 +57,7 @@ export default class GrowthCmp extends Component {
         }
 
         // Store에서 도마뱀 데이터 가져오기
-        const lizard = lizardStore.state.lizards.find(lizard => lizard.id === parseInt(id));
+        const lizard = lizardStore.state.lizards.find(lizard => lizard.lizardId === parseInt(id));
 
         if (!lizard) {
             this.el.innerHTML = '<p>Lizard details not found.</p>';
@@ -125,7 +125,7 @@ export default class GrowthCmp extends Component {
     getIdFromURL() {
         const hash = window.location.hash;
         const match = hash.match(/#\/growth\?id=(\d+)/);
-        return match ? match[1] : null;
+        return match ? parseInt(match[1], 10) : null;
     }
 
     getAverageWeight(species, ageInMonths) {
