@@ -31,7 +31,7 @@ export default {
     async loadLizards() {
         try {
             const lizards = await fetchLizards();
-            this.setState({ lizards });  // 상태 변경 후 구독자들에게 알림
+            this.setState({ lizards: Array.isArray(lizards) ? lizards : [] }); // 상태 변경 후 구독자들에게 알림
         } catch (error) {
             console.error('Error loading lizards:', error);
             this.setState({ message: '도마뱀 목록을 불러오는데 실패했습니다.' });

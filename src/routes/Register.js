@@ -24,11 +24,14 @@ export default class Register extends Component {
             <div class="lizardInfoPlus">
                 <div class="infoWeight">
                     <span>몸무게</span>
-                    <input type="number" class="lizardWeight" placeholder="도마뱀 몸무게(g)를 입력하세요">
+                    <input type="number" class="lizardWeight" placeholder="도마뱀 몸무게(g)를 입력하세요" min="0" step="0.1">
                 </div>
                 <div class="infoKind">
                     <span>종</span>
-                    <input type="text" class="lizardKind" placeholder="도마뱀의 종을 입력하세요">
+                    <buttons class="speciesButtons">
+                        <button class="speciesButton" data-species="LEOPARD_GECKO">레오파드 게코</button>
+                        <button class="speciesButton" data-species="CRESTED_GECKO">크레스티드 게코</button>
+                    </buttons>
                 </div>
                 <div class="infoMorph">
                     <span>모프</span>
@@ -48,10 +51,20 @@ export default class Register extends Component {
         const adoptDateInput = this.el.querySelector('.lizardAdoptDate')
         const nameInput = this.el.querySelector('.lizardName')
         const weightInput = this.el.querySelector('.lizardWeight')
-        const kindInput = this.el.querySelector('.lizardKind')
+        const kindButtons = this.el.querySelectorAll('.speciesButton')
         const morphInput = this.el.querySelector('.lizardMorph')
         const matingCheckbox = this.el.querySelector('.matingYNCheckbox')
         const registerBtn = this.el.querySelector('.registerBtn')
+
+        let selectedSpecies = '';
+        kindButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                selectedSpecies = button.dataset.species;
+                kindButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+
 
         const autoFormatDate = (input) => {
             input.addEventListener('input', function (event) {
@@ -66,12 +79,15 @@ export default class Register extends Component {
         autoFormatDate(adoptDateInput)
 
         registerBtn.addEventListener('click', async () => {
+            const memberId = 1
+
             const data = {
+                memberId,
                 lizardName: nameInput.value,
                 adoptDate: adoptDateInput.value,
                 brithDate: birthDateInput.value,
                 currentWeight: parseFloat(weightInput.value),
-                species: kindInput.value.toUpperCase(),
+                species: selectedSpecies,
                 morph: morphInput.value.toUpperCase(),
                 wantsMate: matingCheckbox.checked,
                 optTemperature: 23,  // 임의의 값

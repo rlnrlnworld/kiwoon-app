@@ -1,6 +1,50 @@
 import { Component } from '../core/setup'
 import lizardStore from '../store/lizard'
 
+//평균 체중 값
+const averageWeights = {
+    "crested_gecko": {
+        "1": 2,
+        "2": 3,
+        "3": 4,
+        "4": 5,
+        "5": 7,
+        "6": 9,
+        "7": 11,
+        "8": 13,
+        "9": 17,
+        "10": 21,
+        "11": 25,
+        "12": 29,
+        "13": 31,
+        "14": 32,
+        "15": 33,
+        "16": 35,
+        "17": 37,
+        "18+": { min: 40, max: 60 }
+    },
+    "leopard_gecko": {
+        "1": 10,
+        "2": 12,
+        "3": 14,
+        "4": 16,
+        "5": 18,
+        "6": 20,
+        "7": 22,
+        "8": 24,
+        "9": 26,
+        "10": 28,
+        "11": 30,
+        "12": 32,
+        "13": 34,
+        "14": 36,
+        "15": 38,
+        "16": 40,
+        "17": 42,
+        "18+": { min: 45, max: 60 }
+    }
+}
+
 export default class GrowthCmp extends Component {
     async render() {
         this.el.classList.add('container', 'growth-cmp');
@@ -20,16 +64,19 @@ export default class GrowthCmp extends Component {
             return;
         }
 
-        // 크레스티드 개월 수 평균 체중 (예시로 하드코딩)
-        const averageWeight = 10; // 예: 10g
-
-        // 도마뱀 체중 비교
-        const weightComparison = lizard.currentWeight < averageWeight ? '평균 이하예요' : '평균 이상이에요';
 
         // 도마뱀의 생일로부터 개월 수 계산
-        const birthDate = new Date(lizard.birthDate);
-        const today = new Date();
-        const ageInMonths = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24 * 30));
+        const birthDate = new Date(lizard.birthDate)
+        const today = new Date()
+        const ageInMonths = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24 * 30))
+
+
+         // 도마뱀 체중 비교
+        const species = lizard.species.toLowerCase()
+        const averageWeight = this.getAverageWeight(species, ageInMonths)
+        const weightComparison = lizard.currentWeight < averageWeight ? '평균 이하예요' : '평균 이상이에요';
+
+        
         
         this.el.innerHTML = `
             <img src="https://i.imgur.com/4WRoTb0.png">
@@ -66,5 +113,18 @@ export default class GrowthCmp extends Component {
         const hash = window.location.hash;
         const match = hash.match(/#\/growth\?id=(\d+)/);
         return match ? match[1] : null;
+    }
+
+    getAverageWeight(species, ageInMonths) {
+        const speciesWeights = averageWeights[species];
+        if (!speciesWeights) return null;
+    
+        if (ageInMonths >= 18) {
+            const range = speciesWeights["18+"];
+            if (range) return (range.min + range.max) / 2; // 범위의 중간값 반환
+            return null;
+        }
+    
+        return speciesWeights[ageInMonths] || null;
     }
 }

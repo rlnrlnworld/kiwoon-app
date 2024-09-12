@@ -7,23 +7,14 @@ import PlusLizard from './PlusLizard'
 export default class LizardList extends Component {
     constructor(lizards) {
         super()
+
+        this.lizards = lizards || []
         
         lizardStore.subscribe('lizards', this.render.bind(this))
         lizardStore.subscribe('loading', this.render.bind(this))
         lizardStore.subscribe('message', this.render.bind(this))
         this.fetchLizards()
     }
-    // async fetchLizards() {
-    //     try {
-    //         // const memberId = localStorage.getItem('memberId');  
-    //         lizardStore.state.loading = true;
-    //         await lizardStore.loadLizards();
-    //         lizardStore.state.loading = false;
-    //     } catch (error) {
-    //         lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.';
-    //         lizardStore.state.loading = false;
-    //     }
-    // }
     async fetchLizards() {
         try {
             lizardStore.setState({ loading: true });
@@ -44,10 +35,12 @@ export default class LizardList extends Component {
         const lizardEl = this.el.querySelector('.lizards')
 
         // 도마뱀 목록을 렌더링
-        lizardStore.state.lizards.forEach(lizard => {
-            const lizardItem = new LizardItem({ lizard }).el
-            lizardEl?.appendChild(lizardItem)
-        })
+        if (Array.isArray(lizardStore.state.lizards)) {
+            lizardStore.state.lizards.forEach(lizard => {
+                const lizardItem = new LizardItem({ lizard }).el;
+                lizardEl?.appendChild(lizardItem);
+            });
+        }
 
         // 플러스 버튼을 렌더링
         const plusLizard = new PlusLizard().el

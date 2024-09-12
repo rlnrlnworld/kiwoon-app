@@ -1,5 +1,5 @@
 import { Component } from "../core/setup"
-import { fetchLizardById } from '../api/lizard'
+import { fetchLizards, fetchLizardById } from '../api/lizard'
 import lizardStore from '../store/lizard'
 
 
@@ -30,7 +30,8 @@ export default class Lizard extends Component {
         }
 
         try {
-            const lizard = await fetchLizardById(id)
+            const lizards = await fetchLizards()
+            const lizard = getLizardById(id, lizards)
 
             if (!lizard) {
                 this.el.innerHTML = '<p>Lizard details not found.</p>'
@@ -112,14 +113,14 @@ export default class Lizard extends Component {
                         </div>
                     </div>
                 </div>
-                <div class = "growthComp">
+                <div class="growthComp">
                     <img class="btnCmp" src ="https://i.imgur.com/2WvRZRt.png">
                     <div class="cmpText">
                         <b>성장 비교 서비스</b>
                         <span>내 도마뱀이 잘 크고 있는지 확인해요</span>
                     </div>
                 </div>
-                <div class = "mating">
+                <div class="mating">
                     <img class="btnMating" src ="https://i.imgur.com/mxmVvu6.png">
                     <div class="matingText">
                         <b>메이팅해 듀오</b>
@@ -136,7 +137,7 @@ export default class Lizard extends Component {
                 window.location.hash = `#/mating?id=${id}`
             })
         } catch (e) {
-            this.el.innerHTML = ``
+            this.el.innerHTML = `<p>Error loading lizard details.</p>`
         }
 
     }
