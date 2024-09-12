@@ -15,14 +15,13 @@ export default class LizardList extends Component {
     }
     async fetchLizards() {
         try {
-            // 도마뱀 목록 API 호출
-            lizardStore.state.loading = true
-            await lizardStore.loadLizards()
-            console.log(lizardStore.state.lizards)
-            lizardStore.state.loading = false
+            const memberId = localStorage.getItem('memberId');  // 예시: 로그인 시 저장된 memberId 사용
+            lizardStore.state.loading = true;
+            await lizardStore.loadLizards(memberId);
+            lizardStore.state.loading = false;
         } catch (error) {
-            lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.'
-            lizardStore.state.loading = false
+            lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.';
+            lizardStore.state.loading = false;
         }
     }
     render() {

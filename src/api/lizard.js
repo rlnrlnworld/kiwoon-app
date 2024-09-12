@@ -1,12 +1,12 @@
-export async function fetchLizards() {
-    const response = await fetch('http://localhost:8080/api/lizards');
+export async function fetchLizards(memberId) {
+    const response = await fetch(`/api/lizards/${memberId}`);
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Failed to fetch lizards:', errorText);
-      throw new Error('Failed to fetch lizards');
+        const errorText = await response.text();
+        console.error('Failed to fetch lizards:', errorText);
+        throw new Error('Failed to fetch lizards');
     }
-    return response.json();  // JSON 데이터 반환
-  }
+    return response.json();
+}
   
   export async function fetchMatingCandidates(morph) {
     const response = await fetch(`http://localhost:8080/api/matings?morph=${morph}`);
