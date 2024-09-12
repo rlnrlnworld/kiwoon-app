@@ -56,10 +56,6 @@ export default class Register extends Component {
             <button class="registerBtn">도마뱀 등록</button>
         `
 
-        if (this.parent && this.parent.updateTitle) {
-            this.parent.updateTitle('도마뱀 등록');
-        }
-
         const birthDateInput = this.el.querySelector('.lizardBirthDate')
         const adoptDateInput = this.el.querySelector('.lizardAdoptDate')
         const nameInput = this.el.querySelector('.lizardName')
@@ -92,20 +88,21 @@ export default class Register extends Component {
         autoFormatDate(adoptDateInput)
 
         registerBtn.addEventListener('click', async () => {
+            
             const memberId = 1
 
             const data = {
                 memberId,
                 lizardName: nameInput.value,
-                adoptDate: adoptDateInput.value,
-                brithDate: birthDateInput.value,
+                adoptDate: adoptDateInput.value.replace(/\//g, ''),
+                brithDate: birthDateInput.value.replace(/\//g, ''),
                 currentWeight: parseFloat(weightInput.value),
                 species: selectedSpecies,
                 morph: morphInput.value.toUpperCase(),
                 wantsMate: matingCheckbox.checked,
                 optTemperature: 23,  // 임의의 값
                 optHumidity: 15,  // 임의의 값
-                hausNumber: "550e8400-e29b" // 임의의 값
+                hausNumber: "550e8400-e29b" // 임의의 UUID 값
             }
 
             try {
