@@ -5,7 +5,7 @@ export default class Register extends Component {
         this.el.classList.add('container', 'register-lizard');
         this.el.innerHTML = `
             <div class="btnBox">
-                <img src="https://i.imgur.com/OKPJzUf.png">
+                <img src="https://i.imgur.com/4WRoTb0.png">
             </div>
             <div class="lizardInfo">
                 <div class="infoName">
