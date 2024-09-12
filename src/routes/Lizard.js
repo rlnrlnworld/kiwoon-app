@@ -1,5 +1,5 @@
 import { Component } from "../core/setup"
-import { fetchLizards, fetchLizardById } from '../api/lizard'
+import { fetchLizards, getLizardById } from '../api/lizard'
 import lizardStore from '../store/lizard'
 
 
@@ -20,7 +20,8 @@ const getStatusText = status => {
 // 케이지 관리 페이지
 export default class Lizard extends Component {
     async render() {
-        this.el.classList.add('container', 'the-lizard');
+        this.el.classList.add('container', 'the-lizard')
+        
 
         // URL에서 ID를 추출
         const id = this.getIdFromURL();
@@ -56,8 +57,17 @@ export default class Lizard extends Component {
             // 습도 상태 결정
             const humidityStatus = currentHumidity < humidityMin ? 'low' :
                                 currentHumidity > humidityMax ? 'high' : 'normal'
-
+                    
             this.el.innerHTML = `
+                <nav>
+                    <a><span class="material-symbols-outlined">
+                    menu
+                    </span></a>
+                    <div class=title>${lizard.lizardName}</div>
+                    <a><span class="material-symbols-outlined">
+                    settings
+                    </span></a>
+                </nav>
                 <div class="enclosure">
                     <img class="iconEnclosure" src="https://i.imgur.com/1dAwK1I.png">
                     <div class="envStat">

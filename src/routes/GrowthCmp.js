@@ -83,6 +83,15 @@ export default class GrowthCmp extends Component {
         
         
         this.el.innerHTML = `
+            <nav>
+                <a><span class="material-symbols-outlined">
+                menu
+                </span></a>
+                <div class=title>성장 비교 서비스</div>
+                <a><span class="material-symbols-outlined">
+                settings
+                </span></a>
+            </nav>
             <img src="https://i.imgur.com/4WRoTb0.png">
             <h1><span>${lizard.lizardName}</span>는 <span>${lizard.currentWeight}g</span>이에요.</h1>
             <h1><span>${ageInMonths}개월</span> 도마뱀 체중의 <br><span>${weightComparison}</span></h1>
@@ -109,7 +118,7 @@ export default class GrowthCmp extends Component {
                     </div>
                 </div>
             </div>
-        `;
+        `
     }
 
     // URL에서 ID를 추출하는 함수

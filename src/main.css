@@ -11,6 +11,29 @@
     font-style: normal;
 }
 
+/* Loading */
+.the-loader {
+    width: 30px;
+    height: 30px;
+    margin: 30px auto;
+    border: 4px solid #ffffffce;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: loader 1s linear infinite;
+}
+.the-loader.hide{
+    display: none;
+}
+@keyframes loader {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.message {
+    color: #ffffffce;
+    font-size: 18px;
+    font-family: 'Gmarket-sans', sans-serif;
+    text-align: center;
+}
 body {
     background-color:  #303030;
     width: 430px;

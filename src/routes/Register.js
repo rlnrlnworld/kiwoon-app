@@ -4,6 +4,15 @@ export default class Register extends Component {
     render() {
         this.el.classList.add('container', 'register-lizard');
         this.el.innerHTML = `
+            <nav>
+                <a><span class="material-symbols-outlined">
+                menu
+                </span></a>
+                <div class=title>도마뱀 등록</div>
+                <a><span class="material-symbols-outlined">
+                settings
+                </span></a>
+            </nav>
             <div class="btnBox">
                 <img src="https://i.imgur.com/4WRoTb0.png">
             </div>
@@ -46,6 +55,10 @@ export default class Register extends Component {
             </div>
             <button class="registerBtn">도마뱀 등록</button>
         `
+
+        if (this.parent && this.parent.updateTitle) {
+            this.parent.updateTitle('도마뱀 등록');
+        }
 
         const birthDateInput = this.el.querySelector('.lizardBirthDate')
         const adoptDateInput = this.el.querySelector('.lizardAdoptDate')

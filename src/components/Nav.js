@@ -1,11 +1,11 @@
 import { Component } from "../core/setup";
 
 export default class Nav extends Component {
-    constructor() {
+    constructor(title='Home') {
         super({
             tagName: 'nav',
             state: {
-                title: 'Home'
+                title: title
             }
         })
     }

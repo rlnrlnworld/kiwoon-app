@@ -27,10 +27,10 @@ export default class LizardList extends Component {
     render() {
         this.el.classList.add('lizard-list')
         this.el.innerHTML = `
+            <div class="the-loader hide"></div>
             ${lizardStore.state.message
             ? `<div class="message">${lizardStore.state.message}</div>`
             : `<div class="lizards"></div>`}
-            <div class="the-loader hide"></div>
         `
         const lizardEl = this.el.querySelector('.lizards')
 
