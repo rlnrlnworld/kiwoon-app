@@ -1,35 +1,7 @@
 import { fetchLizards, fetchMatingCandidates } from '../api/lizard'
 
 export default {
-    // state : {
-    //     lizards: [],
-    //     matingCandidates: [],
-    // },
-    // subscribe(callback) {
-    //     // 상태 변경 시 콜백 호출
-    //     this._callbacks.push(callback);
-    // },
-    // _callbacks: [],
-    // setState(newState) {
-    //     this.state = { ...this.state, ...newState };
-    //     this._callbacks.forEach(callback => callback(this.state));
-    // },
-    // async loadLizards() {
-    //     try {
-    //         const lizards = await fetchLizards()
-    //         this.state.lizards = lizards
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // },
-    // async loadMatingCandidates(morph) {
-    //     try {
-    //         const candidates = await fetchMatingCandidates(morph)
-    //         this.state.matingCandidates = candidates
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
+    
     state: {
         lizards: [],
         matingCandidates: [],

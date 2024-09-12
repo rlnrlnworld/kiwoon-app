@@ -1,5 +1,5 @@
 export async function fetchLizards() {
-    const response = await fetch('/api/lizards');
+    const response = await fetch('http://localhost:8080/api/lizards');
     if (!response.ok) {
       const errorText = await response.text();
       console.error('Failed to fetch lizards:', errorText);
@@ -9,7 +9,7 @@ export async function fetchLizards() {
   }
   
   export async function fetchMatingCandidates(morph) {
-    const response = await fetch(`/api/matings?morph=${morph}`);
+    const response = await fetch(`http://localhost:8080/api/matings?morph=${morph}`);
     if (!response.ok) {
       throw new Error('Failed to fetch mating candidates');
     }
@@ -17,7 +17,7 @@ export async function fetchLizards() {
   }
   
 export async function fetchLizardById(id) {
-    const response = await fetch(`/api/lizards/${id}`);
+    const response = await fetch(`http://localhost:8080/api/lizards/${id}`);
     if (!response.ok) {
       throw new Error('Failed to fetch lizard details');
     }
