@@ -133,6 +133,15 @@ export default class Lizard extends Component {
         this.el.querySelector('.mating').addEventListener('click', () => {
             window.location.hash = `#/mating?id=${id}`;
         });
+        this.el.querySelector('.watering').addEventListener('click', () => {
+            this.provideWater()
+        })
+        this.el.querySelector('.down').addEventListener('click',() => {
+            this.btnDown()
+        })
+        this.el.querySelector('.up').addEventListener('click',() => {
+            this.btnUp()
+        })
     }
 
     getIdFromURL() {
@@ -145,7 +154,10 @@ export default class Lizard extends Component {
         alert('물을 제공했습니다.');
     }
 
-    checkCam() {
-        alert('펫캠을 확인했습니다.');
+    btnDown() {
+        alert('온도를 내렸습니다');
+    }
+    btnUp() {
+        alert('온도를 올렸습니다');
     }
 }
