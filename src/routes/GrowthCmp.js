@@ -24,16 +24,21 @@ export default class GrowthCmp extends Component {
         const averageWeight = 10; // 예: 10g
 
         // 도마뱀 체중 비교
-        const weightComparison = lizard.weight < averageWeight ? '평균 이하예요' : '평균 이상이에요';
+        const weightComparison = lizard.currentWeight < averageWeight ? '평균 이하예요' : '평균 이상이에요';
 
+        // 도마뱀의 생일로부터 개월 수 계산
+        const birthDate = new Date(lizard.birthDate);
+        const today = new Date();
+        const ageInMonths = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24 * 30));
+        
         this.el.innerHTML = `
             <img src="https://i.imgur.com/4WRoTb0.png">
-            <h1><span>${lizard.name}</span>는 <span>${lizard.weight}g</span>이에요.</h1>
-            <h1><span>${lizard.age}개월</span> 도마뱀 체중의 <br><span>${weightComparison}</span></h1>
+            <h1><span>${lizard.lizardName}</span>는 <span>${lizard.currentWeight}g</span>이에요.</h1>
+            <h1><span>${ageInMonths}개월</span> 도마뱀 체중의 <br><span>${weightComparison}</span></h1>
 
             <div class="superFood">
                 <h1 class="superFoodTitle">사료 구독 ></h1>
-                <span>${lizard.name}의 성장을 위한 사료를 구독해요</span>
+                <span>${lizard.lizardName}의 성장을 위한 사료를 구독해요</span>
                 <div class="taste">
                     <div>
                         <h3>무화과맛</h3>

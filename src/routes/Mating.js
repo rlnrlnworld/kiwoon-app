@@ -1,5 +1,6 @@
 import { Component } from '../core/setup'
-import store, { fetchMatingCandidates } from '../store/lizard'
+import store from '../store/lizard'
+import { fetchMatingCandidates } from '../api/lizard'
 
 export default class Mating extends Component {
     constructor() {

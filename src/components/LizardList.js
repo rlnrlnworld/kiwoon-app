@@ -1,5 +1,6 @@
 import { Component } from '../core/setup'
-import lizardStore, { fetchLizards } from '../store/lizard'
+import lizardStore from '../store/lizard'
+import { fetchLizards } from '../api/lizard'
 import LizardItem from './LizardItem'
 import PlusLizard from './PlusLizard'
 
@@ -13,7 +14,16 @@ export default class LizardList extends Component {
         this.fetchLizards()
     }
     async fetchLizards() {
-        await fetchLizards()
+        try {
+            // 도마뱀 목록 API 호출
+            lizardStore.state.loading = true
+            await lizardStore.loadLizards()
+            console.log(lizardStore.state.lizards)
+            lizardStore.state.loading = false
+        } catch (error) {
+            lizardStore.state.message = '도마뱀 목록을 불러오는데 실패했습니다.'
+            lizardStore.state.loading = false
+        }
     }
     render() {
         this.el.classList.add('lizard-list')
