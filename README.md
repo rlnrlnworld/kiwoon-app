@@ -1,6 +1,7 @@
 # 기능 사항
 ## 1. 시작
-![image](https://github.com/user-attachments/assets/18cd5ca0-48ce-4c1f-a22e-eff9ff03a2b5)
+![홈 화면](https://github.com/user-attachments/assets/0d8b0bc2-c636-41fa-a348-41966e228a96)
+
 
 ### Description
 페이지를 클릭하면 도마뱀 목록을 확인할 수 있는 페이지로 넘어간다.
@@ -8,8 +9,9 @@
 <br/>
 
 ## 2. 도마뱀 등록
-![image](https://github.com/user-attachments/assets/e5d4e2a3-4b42-460d-866b-bc523849bb7f)
- ![image](https://github.com/user-attachments/assets/018aafaa-c7ae-4b37-ae3e-d9ebc15acbf1)
+![도마뱀 등록 (1)](https://github.com/user-attachments/assets/0a6120af-7073-4d3d-a364-cc885ba80a0c)
+![도마뱀 등록 (2)](https://github.com/user-attachments/assets/2fa36afa-5f9e-417f-a2dd-33e703590e0a)
+
 
 ### Input
 이름, 생일, 입양일, 몸무게, 종, 모프, 메이팅 희망 여부 <br/>
