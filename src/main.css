@@ -10,6 +10,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'BDSupper';
+    src : url('/src/Fonts/BDSupperBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* Loading */
 .the-loader {
@@ -57,6 +63,36 @@ nav span {
 }
 nav .title {
     font-size: 20px;
+}
+/* 시작 페이지 */
+.start {
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.start img {
+    display: block;
+    border: none;
+    margin: 150px auto 40px;
+    width: 130px;
+    height: 140px;
+}
+.start .titleEng {
+    text-align: center;
+    font-family: 'BDSupper', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.start h1 {
+    text-align: center;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+
 }
 /* 도마뱀 선택 페이지 */
 .lizards {
@@ -415,6 +451,73 @@ nav .title {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
+}
+.lizardMorph:hover {
+    box-shadow: 0 0 0 2px rgba(187, 246, 226, 1);
+}
+
+.lizardMorph option {
+    background-color: #303030;
+    color: #fff;
+    font-family: 'Gmarket-sans', sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.lizardMorph option:hover {
+    background-color: rgba(187, 246, 226, 1); /* hover 시 효과 */
+    color: #303030;
+}
+
+
+/* Custom Alert Box */
+.custom-alert {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f3f3f3; /* Lighter background */
+    padding: 20px;
+    border-radius: 15px; /* Smooth, rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    width: 280px;
+    text-align: center;
+    color: #333; /* Darker text to contrast with the light background */
+    font-family: 'Noto Sans KR', sans-serif; /* Use a clean font */
+}
+
+/* Custom Alert Content */
+.custom-alert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Custom Alert Message */
+#alertMessage {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Confirm Button */
+.confirm-btn {
+    background-color: #ffcc33; /* Light color for the confirm button */
+    color: black; /* Black text to contrast with the light button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Confirm Button Hover Effect */
+.confirm-btn:hover {
+    background-color: #e6b800; /* Slightly darker yellow on hover */
 }
 
 .register-lizard div > div > input {

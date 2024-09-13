@@ -13,10 +13,5 @@ export default class Home extends Component {
             nav,
             lizardList
         )
-
-        // App 인스턴스를 통해 Nav의 타이틀을 업데이트
-        if (this.parent && this.parent.updateTitle) {
-            this.parent.updateTitle('Home');
-        }
     }
 }
