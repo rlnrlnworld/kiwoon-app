@@ -11,8 +11,8 @@ export default class Start extends Component {
             </div>
         `
         
-        document.addEventListener('click', (e) => {
-            e.preventDefault()
+        this.el.addEventListener('click', () => {
+            
             window.location.hash = '#/home'
         })
     }
