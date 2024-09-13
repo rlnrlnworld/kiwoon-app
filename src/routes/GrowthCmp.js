@@ -66,7 +66,11 @@ export default class GrowthCmp extends Component {
 
 
         // 도마뱀의 생일로부터 개월 수 계산
-        const birthDate = new Date(lizard.birthDate)
+        const birthDateString = lizard.birthDate;
+        const year = parseInt(birthDateString.substring(0, 4));
+        const month = parseInt(birthDateString.substring(4, 6)) - 1; // 월은 0부터 시작하므로 -1
+        const day = parseInt(birthDateString.substring(6, 8));
+        const birthDate = new Date(year, month, day);
         const today = new Date()
         const ageInMonths = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24 * 30))
 
@@ -76,12 +80,12 @@ export default class GrowthCmp extends Component {
         const averageWeight = this.getAverageWeight(species, ageInMonths)
         const tolerance = 0.9
         const weightComparison = 
-            currentWeight < averageWeight - tolerance ? '평균 이하예요' 
-            :currentWeight > averageWeight + tolerance ? '평균 이상이에요' 
+            lizard.currentWeight < averageWeight - tolerance ? '평균 이하예요' 
+            :lizard.currentWeight > averageWeight + tolerance ? '평균 이상이에요' 
             :'평균이에요'
 
-        
-        
+
+
         this.el.innerHTML = `
             <nav>
                 <a><span class="material-symbols-outlined">
@@ -131,13 +135,14 @@ export default class GrowthCmp extends Component {
     getAverageWeight(species, ageInMonths) {
         const speciesWeights = averageWeights[species];
         if (!speciesWeights) return null;
-    
+
         if (ageInMonths >= 18) {
             const range = speciesWeights["18+"];
             if (range) return (range.min + range.max) / 2; // 범위의 중간값 반환
             return null;
         }
-    
+
         return speciesWeights[ageInMonths] || null;
     }
 }
+ 

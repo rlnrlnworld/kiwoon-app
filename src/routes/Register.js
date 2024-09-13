@@ -44,7 +44,9 @@ export default class Register extends Component {
                 </div>
                 <div class="infoMorph">
                     <span>모프</span>
-                    <input type="text" class="lizardMorph" placeholder="도마뱀의 모프를 입력하세요">
+                    <select class="lizardMorph">
+                        <option value="">모프를 선택하세요</option>
+                    </select>
                 </div>
                 <div class="matingYN">
                     <span>메이팅 희망 여부</span>
@@ -54,25 +56,79 @@ export default class Register extends Component {
 
             </div>
             <button class="registerBtn">도마뱀 등록</button>
+
         `
+
+        // 종별 모프 옵션
+        const morphOptions = {
+            LEOPARD_GECKO: [
+                { value: "NORMAL", text: "노멀" },
+                { value: "ALBINO", text: "알비노" },
+                { value: "TANGERINE", text: "탠저린" },
+                { value: "HYPOMELANISTIC", text: "하이포멜라니스틱" },
+                { value: "SUPER_HYPO", text: "슈퍼 하이포" },
+                { value: "MACK_SNOW", text: "맥 스노우" },
+                { value: "BELL_ALBINO", text: "벨 알비노" },
+                { value: "RAINWATER_ALBINO", text: "레인워터 알비노" },
+                { value: "TREMPER_ALBINO", text: "트렘퍼 알비노" },
+                { value: "BLACK_NIGHT", text: "블랙 나이트" },
+                { value: "DIABLO_BLANCO", text: "디아블로 블랑코" },
+                { value: "RAPTOR", text: "랩터" }
+            ],
+            CRESTED_GECKO: [
+                { value: "FLAME", text: "플레임" },
+                { value: "HARLEQUIN", text: "할리퀸" },
+                { value: "PINSTRIPE", text: "핀스트라이프" },
+                { value: "DALMATIAN", text: "달마시안" },
+                { value: "TIGER", text: "타이거" },
+                { value: "PHANTOM", text: "팬텀" },
+                { value: "MOON_GLOW", text: "문 글로우" },
+                { value: "TRICOLOR", text: "트라이컬러" },
+                { value: "RED_PATTERNLESS", text: "레드 패턴리스" },
+                { value: "YELLOW_PATTERNLESS", text: "옐로우 패턴리스" },
+                { value: "LILLY_WHITE", text: "릴리 화이트" },
+                { value: "AXANTHIC", text: "아잔틱" }
+            ]
+        };
+
 
         const birthDateInput = this.el.querySelector('.lizardBirthDate')
         const adoptDateInput = this.el.querySelector('.lizardAdoptDate')
         const nameInput = this.el.querySelector('.lizardName')
         const weightInput = this.el.querySelector('.lizardWeight')
         const kindButtons = this.el.querySelectorAll('.speciesButton')
-        const morphInput = this.el.querySelector('.lizardMorph')
+        const morphSelect = this.el.querySelector('.lizardMorph')
         const matingCheckbox = this.el.querySelector('.matingYNCheckbox')
         const registerBtn = this.el.querySelector('.registerBtn')
 
         let selectedSpecies = '';
+        // kindButtons.forEach(button => {
+        //     button.addEventListener('click', () => {
+        //         selectedSpecies = button.dataset.species;
+        //         kindButtons.forEach(btn => btn.classList.remove('selected'));
+        //         button.classList.add('selected');
+        //     });
+        // });
+
         kindButtons.forEach(button => {
             button.addEventListener('click', () => {
                 selectedSpecies = button.dataset.species;
                 kindButtons.forEach(btn => btn.classList.remove('selected'));
                 button.classList.add('selected');
+                updateMorphOptions(selectedSpecies);
             });
         });
+
+        function updateMorphOptions(species) {
+            morphSelect.innerHTML = '<option value="">선택하세요</option>'; // 기존 모프 초기화
+            morphOptions[species].forEach(morph => {
+                const option = document.createElement('option');
+                option.value = morph.value;
+                option.textContent = morph.text;
+                morphSelect.appendChild(option);
+            });
+        }
+
 
 
         const autoFormatDate = (input) => {
@@ -95,18 +151,22 @@ export default class Register extends Component {
                 memberId,
                 lizardName: nameInput.value,
                 adoptDate: adoptDateInput.value.replace(/\//g, ''),
-                brithDate: birthDateInput.value.replace(/\//g, ''),
+                birthDate: birthDateInput.value.replace(/\//g, ''),
                 currentWeight: parseFloat(weightInput.value),
                 species: selectedSpecies,
-                morph: morphInput.value.toUpperCase(),
+                morph: morphSelect.value.toUpperCase(),
                 wantsMate: matingCheckbox.checked,
-                optTemperature: 23,  // 임의의 값
-                optHumidity: 15,  // 임의의 값
+                optTemperature: 26,  // 임의의 값
+                optHumidity: 55,  // 임의의 값
                 hausNumber: "550e8400-e29b" // 임의의 UUID 값
             }
 
+
             try {
-                const response = await fetch('http://localhost:8888/api/lizard', {
+                console.log("데이터 저장==============================");
+                console.log(data) 
+
+                const response = await fetch('http://localhost:8888/api/lizards', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
