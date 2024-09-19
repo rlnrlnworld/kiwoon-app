@@ -1,4 +1,4 @@
-<p align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=56A63B&height=150&section=header" /></p>
+<p align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=56A63B&height=150&section=header" width="100%" /></p>
 
 <p align="center"><img src="https://i.imgur.com/tCLlFmV.png" /></p>
 
@@ -91,4 +91,4 @@ Kiwoon App은 도마뱀의 성장과 환경 조건을 관리 및 모니터링할
 
 <p align="center"><img src="https://i.imgur.com/oDiKR2a.png" /></p>
 
-<p align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=56A63B&height=150&section=footer" /></p>
+<p align="center"><img src="https://capsule-render.vercel.app/api?type=waving&color=56A63B&height=150&section=footer" width="100%" /></p>
