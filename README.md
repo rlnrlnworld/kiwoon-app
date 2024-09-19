@@ -1,71 +1,85 @@
-# 기능 사항
-## 1. 시작
-![홈 화면](https://github.com/user-attachments/assets/0d8b0bc2-c636-41fa-a348-41966e228a96)
+# Kiwoon
 
+Kiwoon App은 도마뱀의 성장과 환경 조건을 관리 및 모니터링할 수 있는 웹 애플리케이션입니다. 사용자는 도마뱀을 등록하고, 온도와 습도를 실시간으로 확인하며, 다른 도마뱀들과 성장 비교를 할 수 있습니다.
 
-### Description
-페이지를 클릭하면 도마뱀 목록을 확인할 수 있는 페이지로 넘어간다.
+## 주요 기능
 
-<br/>
+- **도마뱀 등록**: 이름, 종, 무게, 입양일 등의 정보 입력
+- **도마뱀 목록**: 등록된 도마뱀 목록 확인
+- **도마뱀 상세 정보**: 실시간 온도 및 습도 모니터링
+- **성장 비교**: 다른 도마뱀과의 성장 비교
 
-## 2. 도마뱀 등록
-![도마뱀 등록 (1)](https://github.com/user-attachments/assets/0a6120af-7073-4d3d-a364-cc885ba80a0c)
-![도마뱀 등록 (2)](https://github.com/user-attachments/assets/2fa36afa-5f9e-417f-a2dd-33e703590e0a)
+## 사용 기술
 
+- **HTML**: 페이지 구조
+- **CSS**: 스타일링 및 애니메이션
+- **Vanilla JavaScript**: SPA 구현 및 비동기 API 통합
+- **Parcel**: 모듈 번들러
+- **API**: `/api/lizards` 엔드포인트
 
-### Input
-- 이름
-- 생일
-- 입양일
-- 몸무게
-- 종
-- 모프
-- 메이팅 희망 여부
+## 설치 방법
 
-### API 
-/api/lizards <br/>
-### Description
-1. **애니메이션** : Hover 애니메이션을 추가하여 동적 페이지 구현 <br/>
-2. **YYMMDD 구분** : 연도와 월, 일 사이에 "/"를 추가하여 구분이 쉽도록 하고, api request에는 제거하고 전달 <br/>
-3. **모프 선택 값 분류**: 선택 종에 따라 선택할 수 있는 모프 옵션 값을 달리 설정 <br/>
+1. **레포지토리 클론**:
+   ```bash
+   git clone https://github.com/rlnrlnworld/kiwoon-app.git
+   cd kiwoon-app
+2. **패키지 설치**:
+   ```bash
+   npm install
+4. **개발 서버 실행**:
+   ```bash
+   npm run dev
+6. **브라우저에서 접속**: `http://localhost:1234`에서 애플리케이션 확인 가능
 
-<br />
+## 프로젝트 구조
 
-## 3. 도마뱀 목록 확인
-![image](https://github.com/user-attachments/assets/876917d3-4e5c-49b3-a416-1d22f0bd9942)
+```bash
+root/
+│
+├── .gitignore            # Git에서 무시할 파일/폴더를 지정
+├── README.md             # 프로젝트에 대한 문서
+├── index.html            # 애플리케이션의 주요 HTML 파일
+├── package.json          # 프로젝트 메타데이터 및 의존성 정보
+├── package-lock.json     # 의존성 버전을 고정
+│
+└── src/                  # 애플리케이션의 소스 코드
+    ├── Fonts/            # 폰트 파일을 저장하는 폴더
+    ├── api/              # API 관련 함수 및 요청을 관리하는 폴더
+    │   └── lizard.js     # 도마뱀 관련 API 함수를 처리하는 파일
+    ├── components/       # 재사용 가능한 UI 컴포넌트를 저장하는 폴더
+    │   ├── LizardItem.js  # 개별 도마뱀 정보를 표시하는 컴포넌트
+    │   ├── LizardList.js  # 도마뱀 리스트를 표시하는 컴포넌트
+    │   ├── Nav.js         # 내비게이션 컴포넌트
+    │   └── PlusLizard.js   # 도마뱀 추가 기능을 제공하는 컴포넌트
+    ├── core/             
+    │   └── setup.js      # 애플리케이션 설정 로직
+    ├── img/              # 애플리케이션에서 사용하는 이미지 파일을 저장하는 폴더
+    ├── routes/           # 라우팅 정의 및 내비게이션 로직을 관리하는 폴더
+    │   ├── Enclosure.js   # 도마뱀 공간 관련 페이지
+    │   ├── GrowthCmp.js   # 성장 비교 페이지
+    │   ├── Home.js        # 홈 페이지
+    │   ├── Lizard.js      # 도마뱀 상세 페이지
+    │   ├── Mating.js      # 번식 관련 페이지
+    │   ├── NotFound.js     # 페이지를 찾을 수 없을 때 표시하는 페이지
+    │   ├── Register.js    # 도마뱀 등록 페이지
+    │   ├── Start.js       # 시작 페이지
+    │   └── index.js       # 라우터 설정을 위한 인덱스 파일
+    └── store/
+        └── lizard.js      # 도마뱀 관련 상태를 관리하는 파일
+    │
+    ├── App.js            # 애플리케이션의 주요 컴포넌트
+    ├── main.css          # 애플리케이션의 주요 스타일시트
+    └── main.js           # 애플리케이션을 초기화하는 주요 JavaScript 파일
 
-### API 
-/api/lizards <br/>
-### Description
-1. **비동기 작동** : api에서 도마뱀 목록을 가져와 렌더링
-2. **등록 페이지와 연결** : 목록에서 플러스 버튼을 누르면 등록 페이지로 연결
+```
+## 사용 방법
 
-<br />
+1. **도마뱀 목록 확인**: 등록된 도마뱀들을 확인하세요.
+2. **도마뱀 상세 정보**: 도마뱀의 온도와 습도를 확인하세요.
+3. **성장 비교**: 다른 도마뱀과의 성장을 비교해보세요.
 
-## 4. 도마뱀 상세 기능
-![케이지 관리](https://github.com/user-attachments/assets/7ef97965-c88b-4c0f-8bb1-a9f0de8e58b7)
+## 향후 업데이트
 
-### API 
-/api/lizards <br/>
-### Description
-1. **케이지 연동** : 케이지와 연결하여 실시간으로 온습도 적정 파악 및 원격 설정
-2. **물 분사** : 케이지와 연결하여 도마뱀에게 물을 주고 싶을 때 실시간으로 물 분사
-
-<br />
-
-## 5. 성장 비교 서비스
-![성장 비교 서비스](https://github.com/user-attachments/assets/10d31925-66a7-442a-b86a-7c2951e9a416)
-
-### API 
-/api/lizards <br/>
-### Description
-1. **몸무게를 이용한 성장 비교** : 해당 도마뱀의 개월 수와 현재 몸무게 정보를 불러와 해당 종의 평균 몸무게와 비교하여 출력
-2. **사료 구독** : 사료 구독 서비스와 연결될 수 있도록 하여 이익 창출
-
-<br />
-
-## 6. 메이팅 서비스
-### API
-/api/mating <br />
-
-*추후 구현 예정*
+- 물 뿌리기 기능 추가
+- 성장 분석 그래프 제공
+- 모프 계산을 통한 교배 서비스 기능 도입
