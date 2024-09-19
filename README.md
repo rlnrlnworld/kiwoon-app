@@ -13,7 +13,7 @@ Kiwoon App은 도마뱀의 성장과 환경 조건을 관리 및 모니터링할
 - **도마뱀 상세 정보**: 실시간 온도 및 습도 모니터링
 - **성장 비교**: 다른 도마뱀과의 성장 비교
 
-## 사용 기술
+## 사용 툴
 
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
