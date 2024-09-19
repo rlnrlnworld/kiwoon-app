@@ -34,8 +34,7 @@ Kiwoon App은 도마뱀의 성장과 환경 조건을 관리 및 모니터링할
 ## 프로젝트 구조
 
 ```bash
-root/
-│
+
 ├── .gitignore            # Git에서 무시할 파일/폴더를 지정
 ├── README.md             # 프로젝트에 대한 문서
 ├── index.html            # 애플리케이션의 주요 HTML 파일
