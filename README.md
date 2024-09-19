@@ -89,4 +89,6 @@ Kiwoon App은 도마뱀의 성장과 환경 조건을 관리 및 모니터링할
 - 성장 분석 그래프 제공
 - 모프 계산을 통한 교배 서비스 기능 도입
 
+![icon-footer](https://i.imgur.com/oDiKR2a.png)
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=56A63B&height=150&section=footer" />
