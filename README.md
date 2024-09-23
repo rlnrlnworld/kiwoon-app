@@ -32,10 +32,13 @@ Kiwoon App은 도마뱀의 성장과 환경 조건을 관리 및 모니터링할
 2. **패키지 설치**:
    ```bash
    npm install
+3. **번들러 설치**:
+   ```bash
+   npm i -D parcel
 4. **개발 서버 실행**:
    ```bash
    npm run dev
-6. **브라우저에서 접속**: `http://localhost:1234`에서 애플리케이션 확인 가능
+5. **브라우저에서 접속**: `http://localhost:1234`에서 애플리케이션 확인 가능
 
 ## 프로젝트 구조
 
